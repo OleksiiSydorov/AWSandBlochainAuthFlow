@@ -5,12 +5,12 @@ Login:
         path: login
         method: post
         cors: true
-        request:
-         parameters:
-           paths:
-             client_id: true
-        schemas:
-         application/json: ${file(resources/login_request.json)}
+        # request:
+        #  parameters:
+        #    paths:
+        #      client_id: true
+        # schemas:
+        #  application/json: ${file(resources/login_request.json)}
 
 GetNonce:
   handler: src/get_nonce/index.handler

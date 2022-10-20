@@ -17,6 +17,7 @@ const headers = {
 };
 module.exports.handler = async (event) => {
   const requestBody = JSON.parse(event.body);
+  console.log(`Entered login method. Params: ${requestBody} Trying to get nonce`);
   const { address, signature } = requestBody;
   const { Items: nonces } = await getNonce(address);
 
