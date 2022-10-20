@@ -1,0 +1,23 @@
+# package directories
+*/node_modules
+*/jspm_packages
+
+# Serverless directories
+*/.serverless
+
+*/.env
+
+.idea/
+.vscode/
+frontend/build
+.DS_Store
+*.tgz
+frontend/my-app*
+frontend/template/src/__tests__/__snapshots__/
+frontend/lerna-debug.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+/.changelog
+frontend/.npm/
+frontend/yarn.lock
