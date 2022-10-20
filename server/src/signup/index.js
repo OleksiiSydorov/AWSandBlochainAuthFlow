@@ -6,6 +6,8 @@ const { updateNonce } = require('../utils');
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Credentials': true,
+  "Access-Control-Allow-Headers" : "Content-Type",
+  "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
 };
 module.exports.handler = async (event) => {
   const requestBody = JSON.parse(event.body);

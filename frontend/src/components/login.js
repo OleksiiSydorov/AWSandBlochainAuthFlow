@@ -71,7 +71,7 @@ export const Login = () => {
             validateStatus: false,
           }
         );
-        let {data: {Attributes : {nonce}}} = resp;
+        let {data:{nonce}} = resp;
         const signature = await web3.eth.personal.sign(
           web3.utils.sha3(`Welcome message, nonce: ${nonce}`),
           address
