@@ -9,7 +9,7 @@ function Dashboard() {
     const fetchHelloAPI = async () => {
       if (awsClient) {
         const request = await awsClient.sign(
-          `${process.env.REACT_APP_API_BASE_URL}${process.env.REACT_APP_API_HELLO_PATH}?name=Andriy`,
+          `${process.env.REACT_APP_API_BASE_URL}${process.env.REACT_APP_API_HELLO_PATH}?name=Oleksii`,
           {
             method: 'GET',
           }
