@@ -62,7 +62,9 @@ export const Login = () => {
           method: 'eth_requestAccounts',
         });
         const address = accounts[0];
-        const resp = await axios(
+        let {
+          data: { nonce },
+        } = await axios(
           `${process.env.REACT_APP_API_BASE_URL}${
             process.env.REACT_APP_API_GET_NONCE_PATH
           }?address=${address.toLowerCase()}`,
@@ -71,7 +73,22 @@ export const Login = () => {
             validateStatus: false,
           }
         );
-        let {data:{nonce}} = resp;
+        if (!nonce) {
+          const { data } = await axios.post(
+            `${process.env.REACT_APP_API_BASE_URL}${process.env.REACT_APP_API_SIGNUP_PATH}`,
+            { address: address.toLowerCase() },
+            {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+          console.log(data);
+          if (data && data.Attributes) {
+            nonce = data.Attributes.nonce;
+          }
+        }
+
         const signature = await web3.eth.personal.sign(
           web3.utils.sha3(`Welcome message, nonce: ${nonce}`),
           address
