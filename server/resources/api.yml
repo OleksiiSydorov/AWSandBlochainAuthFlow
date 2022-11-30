@@ -1,4 +1,0 @@
-ApiGatewayRestApi:
-  Type: AWS::ApiGateway::RestApi
-  Properties:
-    Name: ${self:service}-1
